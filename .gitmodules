@@ -1,0 +1,6 @@
+[submodule "IOT_n3"]
+	path = IOT_n3
+	url = https://github.com/oliviera999/IOT_n3.git
+[submodule "moodle/index_olution"]
+	path = moodle/index_olution
+	url = https://github.com/oliviera999/index_olution.git
