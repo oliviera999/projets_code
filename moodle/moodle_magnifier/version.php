@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_magnifier';
-$plugin->version   = 2025031602;
+$plugin->version   = 2025031603;
 $plugin->requires = 2024110400; // Moodle 4.3 or later (Hooks API).
 $plugin->maturity = MATURITY_ALPHA;
-$plugin->release  = '0.1.1';
+$plugin->release  = '0.1.2';
