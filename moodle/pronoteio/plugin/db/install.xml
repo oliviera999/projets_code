@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/pronoteio/db" VERSION="20260928" COMMENT="XMLDB file for local_pronoteio"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="local_pronoteio_account" COMMENT="Pronote account linked to a Moodle teacher">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="pronoteurl" TYPE="char" LENGTH="1333" NOTNULL="true" SEQUENCE="false" COMMENT="Base URL of the Pronote instance"/>
+        <FIELD NAME="username" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="token" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Pronote next-time token, encrypted with core\encryption"/>
+        <FIELD NAME="deviceuuid" TYPE="char" LENGTH="64" NOTNULL="true" SEQUENCE="false" COMMENT="Device identifier bound to the token"/>
+        <FIELD NAME="icalurl" TYPE="char" LENGTH="1333" NOTNULL="false" SEQUENCE="false" COMMENT="Optional iCal export URL of the timetable"/>
+        <FIELD NAME="enabled" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="pending" SEQUENCE="false" COMMENT="pending, ok, error"/>
+        <FIELD NAME="lastsync" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="userid" TYPE="foreign-unique" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="local_pronoteio_map" COMMENT="Mapping between a Moodle course and a Pronote class or group">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="accountid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="pronoteid" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Pronote resource identifier (N)"/>
+        <FIELD NAME="pronotename" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="type" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="class or group"/>
+        <FIELD NAME="groupid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Moodle group kept in sync, 0 if none"/>
+        <FIELD NAME="flags" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Bitmask of enabled flows"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="courseid" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id"/>
+        <KEY NAME="accountid" TYPE="foreign" FIELDS="accountid" REFTABLE="local_pronoteio_account" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="course_pronote" UNIQUE="true" FIELDS="courseid, pronoteid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="local_pronoteio_log" COMMENT="Synchronisation log">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="accountid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="flow" TYPE="char" LENGTH="30" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="level" TYPE="char" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="info, warning, error"/>
+        <FIELD NAME="message" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="accountid" TYPE="foreign" FIELDS="accountid" REFTABLE="local_pronoteio_account" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="timecreated" UNIQUE="false" FIELDS="timecreated"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="local_pronoteio_push" COMMENT="Grade items or progress blocks pushed to a Pronote service, to update the same assessment next time">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="itemid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Grade item, 0 for a progress block"/>
+        <FIELD NAME="blockinstanceid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Completion Progress block, 0 for a grade item"/>
+        <FIELD NAME="accountid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="serviceid" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Pronote service (subject + class/group)"/>
+        <FIELD NAME="servicename" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="periodid" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="assessmentid" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="Pronote assessment created by the first push"/>
+        <FIELD NAME="options" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="JSON options of the last push"/>
+        <FIELD NAME="written" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Teacher who pushed last"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="courseid" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id"/>
+        <KEY NAME="itemid" TYPE="foreign" FIELDS="itemid" REFTABLE="grade_items" REFFIELDS="id"/>
+        <KEY NAME="accountid" TYPE="foreign" FIELDS="accountid" REFTABLE="local_pronoteio_account" REFFIELDS="id"/>
+        <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="source_service" UNIQUE="true" FIELDS="itemid, blockinstanceid, serviceid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="local_pronoteio_cohort" COMMENT="Correspondence between a Moodle cohort and a Pronote class or group">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="cohortid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="pronoteid" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Pronote resource identifier (N)"/>
+        <FIELD NAME="pronotename" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="autofill" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Fill the cohort with the students of the class"/>
+        <FIELD NAME="lastsync" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="lastreport" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="JSON report of the last synchronisation"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="cohortid" TYPE="foreign" FIELDS="cohortid" REFTABLE="cohort" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="cohort_pronote" UNIQUE="true" FIELDS="cohortid, pronoteid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="local_pronoteio_cmember" COMMENT="Cohort members added by the synchronisation (only these are removed)">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="linkid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="linkid" TYPE="foreign" FIELDS="linkid" REFTABLE="local_pronoteio_cohort" REFFIELDS="id"/>
+        <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="link_user" UNIQUE="true" FIELDS="linkid, userid"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

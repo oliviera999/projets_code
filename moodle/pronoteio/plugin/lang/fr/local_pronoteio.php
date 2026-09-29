@@ -1,0 +1,260 @@
+<?php
+// This file is part of Moodle - https://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+
+/**
+ * French strings for local_pronoteio.
+ *
+ * @package    local_pronoteio
+ * @copyright  2026
+ * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+defined('MOODLE_INTERNAL') || die();
+
+$string['accountintro'] = 'Liez votre compte enseignant Pronote. Votre mot de passe sert une seule fois à obtenir un jeton de connexion et n\'est jamais enregistré.';
+$string['accountlinked'] = 'Votre compte Pronote a été lié.';
+$string['accounttitle'] = 'Mon compte Pronote';
+$string['accountunlinked'] = 'Votre compte Pronote a été délié.';
+$string['addmapping'] = 'Ajouter une association';
+$string['assessmentdate'] = 'Date du devoir';
+$string['assessmentpublication'] = 'Date de publication';
+$string['assessmentpublication_help'] = 'Date à partir de laquelle élèves et parents voient la note dans Pronote. Elle ne peut pas précéder la date du devoir. La valeur proposée dépend du délai de publication réglé par l\'administrateur.';
+$string['assessmenttitle'] = 'Titre du devoir';
+$string['assessmenttitle_help'] = 'Titre du devoir dans Pronote. Laisser vide pour reprendre le nom de l\'élément d\'évaluation.';
+$string['cohort_addenrol'] = 'Ajouter l\'inscription par cohorte';
+$string['cohort_autofill'] = 'Remplir la cohorte automatiquement';
+$string['cohort_enrolled'] = 'Inscrite';
+$string['cohort_locked'] = 'gérée par un plugin';
+$string['cohort_neversynced'] = 'Jamais synchronisée';
+$string['cohort_noaccount'] = 'Choisissez d\'abord dans les réglages le compte enseignant Pronote utilisé pour les cohortes. Ce compte doit avoir été lié par son propriétaire.';
+$string['cohort_nocohorts'] = 'Aucune cohorte n\'existe encore. Créez d\'abord les cohortes (Administration du site > Utilisateurs > Cohortes).';
+$string['cohort_report'] = 'Dernière synchronisation';
+$string['cohort_reportsummary'] = '{$a->matched} / {$a->students} élèves rapprochés, {$a->added} ajouté(s), {$a->removed} retiré(s), {$a->extra} autre(s) membre(s)';
+$string['cohort_suggested'] = 'Suggestion d\'après le nom, enregistrer pour valider';
+$string['cohort_synced'] = '{$a} correspondance(s) synchronisée(s).';
+$string['cohort_syncnow'] = 'Synchroniser maintenant';
+$string['cohort_unmatched'] = '{$a} élève(s) introuvable(s) dans Moodle';
+$string['cohortexport'] = 'Exporter la table (CSV)';
+$string['cohortimport'] = 'Importer une table de correspondance';
+$string['cohortimport_done'] = '{$a} correspondance(s) importée(s).';
+$string['cohortimport_errors'] = 'Certaines lignes ont été ignorées :';
+$string['cohortimport_help'] = 'Fichier CSV (virgule ou point-virgule) avec une ligne d\'en-tête et les colonnes : cohort_idnumber, cohort_name, pronote_class, autofill (1 ou 0). La cohorte est retrouvée par son identifiant, sinon par son nom.';
+$string['cohortimport_replace'] = 'Remplacer toute la table (sinon les lignes sont ajoutées ou mises à jour)';
+$string['cohortmapping'] = 'Cohortes et classes Pronote';
+$string['cohortmapping_intro'] = 'Associez chaque classe ou groupe Pronote à une cohorte Moodle. Si le remplissage automatique est activé, les élèves de la classe trouvés dans Moodle sont ajoutés à la cohorte chaque nuit ; seuls les membres ajoutés ainsi sont retirés lorsqu\'ils quittent la classe.';
+$string['connectionfailed'] = 'Échec de la connexion à Pronote : {$a}';
+$string['connectionok'] = 'Connexion à Pronote réussie.';
+$string['connector_file'] = 'Fichiers uniquement (export CSV, import iCal)';
+$string['connector_sidecar'] = 'Service annexe (Pawnote)';
+$string['coursemapping'] = 'Pronote';
+$string['csv_noclass'] = 'Ligne {$a->line} : classe Pronote « {$a->value} » introuvable ou ambiguë.';
+$string['csv_nocohort'] = 'Ligne {$a->line} : cohorte « {$a->value} » introuvable ou ambiguë.';
+$string['deletemapping'] = 'Supprimer l\'association';
+$string['enabled'] = 'Synchronisation automatique';
+$string['error_badcredentials'] = 'Identifiant ou mot de passe Pronote incorrect.';
+$string['error_badpin'] = 'Code PIN refusé par Pronote.';
+$string['error_coefficient'] = 'Le coefficient ne peut pas être négatif.';
+$string['error_doubleauth'] = 'Pronote demande une double authentification non prise en charge. Connectez-vous une fois à l\'espace Pronote web puis réessayez.';
+$string['error_gradewritedisabled'] = 'L\'envoi des notes vers Pronote est désactivé par l\'administrateur.';
+$string['error_noaccess'] = 'Vous n\'avez pas accès à cette page.';
+$string['error_noaccount'] = 'Vous devez d\'abord lier votre compte Pronote.';
+$string['error_noservices'] = 'Pronote n\'a renvoyé aucun service ni aucune période pour votre compte.';
+$string['error_notconfigured'] = 'Cette fonction Pronote n\'est pas encore configurée sur le service annexe ({$a}). Voir docs/capture.md.';
+$string['error_notsupported'] = 'Cette opération n\'est pas prise en charge par le connecteur « {$a} ».';
+$string['error_pinformat'] = 'Le code PIN comporte de 4 à 8 chiffres.';
+$string['error_pinrequired'] = 'Pronote demande votre code PIN de double authentification : saisissez-le avec votre mot de passe.';
+$string['error_publication'] = 'La date de publication ne peut pas précéder la date du devoir.';
+$string['error_scale'] = 'Le barème doit être positif et ne pas dépasser {$a}.';
+$string['error_securitysetup'] = 'Pronote demande de personnaliser votre mot de passe ou votre double authentification : faites-le d\'abord dans l\'espace Pronote web.';
+$string['error_servicenotinperiod'] = 'Ce service Pronote n\'est pas noté sur la période choisie : choisissez l\'une de ses périodes.';
+$string['error_serviceperiod'] = 'Ce service n\'est noté que sur : {$a}.';
+$string['error_session'] = 'Impossible d\'ouvrir la session Pronote.';
+$string['error_sidecar'] = 'Erreur du service annexe : {$a}';
+$string['error_sidecarconfig'] = 'L\'URL du service annexe ou le secret partagé n\'est pas configuré.';
+$string['exportcsv'] = 'Télécharger le fichier Pronote';
+$string['exportgrades'] = 'Exporter les notes vers Pronote';
+$string['exportgrades_intro'] = 'Le fichier est formaté pour Pronote (UTF-16, séparateur tabulation). Importez-le dans le client Pronote : Notes > Saisie des notes > import depuis un fichier.';
+$string['flow_absences'] = 'Absences';
+$string['flow_grades'] = 'Notes';
+$string['flow_homework'] = 'Travail à faire';
+$string['flow_roster'] = 'Élèves et groupes';
+$string['flow_timetable'] = 'Emploi du temps';
+$string['flows'] = 'Flux synchronisés';
+$string['gradeitem'] = 'Élément d\'évaluation';
+$string['gradestatus_abs'] = 'Absent (Abs)';
+$string['gradestatus_abszero'] = 'Absent, compte zéro (Abs0)';
+$string['gradestatus_disp'] = 'Dispensé (Disp)';
+$string['gradestatus_inapte'] = 'Inapte (Inap)';
+$string['gradestatus_nonnote'] = 'Non noté (N.Not)';
+$string['gradestatus_nonrendu'] = 'Non rendu (N.Rdu)';
+$string['gradestatus_nonrenduzero'] = 'Non rendu, compte zéro (N.Rdu0)';
+$string['homeworkevent'] = 'Travail à faire : {$a}';
+$string['icalurl'] = 'URL iCal de l\'emploi du temps';
+$string['icalurl_help'] = 'Facultatif. Lien d\'export de votre emploi du temps, disponible dans Pronote (Emploi du temps > Export iCal).';
+$string['lastsync'] = 'Dernière synchronisation';
+$string['lessoncancelled'] = '{$a} (annulé)';
+$string['linkaccount'] = 'Lier le compte';
+$string['mappingintro'] = 'Associez ce cours à une ou plusieurs classes ou groupes Pronote.';
+$string['matchmode_email'] = 'Adresse e-mail uniquement';
+$string['matchmode_email_name'] = 'Adresse e-mail, puis nom et prénom';
+$string['matchmode_name'] = 'Nom et prénom uniquement';
+$string['matchmode_name_email'] = 'Nom et prénom, puis adresse e-mail';
+$string['never'] = 'Jamais';
+$string['nogradeitems'] = 'Ce cours ne contient aucun élément d\'évaluation numérique à exporter.';
+$string['nomappings'] = 'Aucune classe ni aucun groupe Pronote n\'est associé à ce cours.';
+$string['password'] = 'Mot de passe Pronote';
+$string['password_help'] = 'Utilisé une seule fois pour obtenir un jeton. Laisser vide pour conserver la connexion actuelle.';
+$string['pin'] = 'Code PIN Pronote';
+$string['pin_help'] = 'Uniquement si votre compte Pronote utilise la double authentification par code PIN. Utilisé une seule fois, avec le mot de passe, pour enregistrer Moodle comme appareil de confiance (« Moodle pronoteio ») ; il n\'est jamais conservé.';
+$string['pluginname'] = 'Pronoteio';
+$string['privacy:metadata:local_pronoteio_account'] = 'Compte Pronote lié par un enseignant.';
+$string['privacy:metadata:local_pronoteio_account:icalurl'] = 'URL d\'export iCal de l\'emploi du temps.';
+$string['privacy:metadata:local_pronoteio_account:lastsync'] = 'Date de la dernière synchronisation.';
+$string['privacy:metadata:local_pronoteio_account:pronoteurl'] = 'URL de l\'instance Pronote.';
+$string['privacy:metadata:local_pronoteio_account:token'] = 'Jeton de connexion Pronote chiffré.';
+$string['privacy:metadata:local_pronoteio_account:userid'] = 'Utilisateur Moodle ayant lié le compte.';
+$string['privacy:metadata:local_pronoteio_account:username'] = 'Identifiant Pronote.';
+$string['privacy:metadata:local_pronoteio_cmember'] = 'Appartenances aux cohortes créées par la synchronisation avec une classe Pronote.';
+$string['privacy:metadata:local_pronoteio_cmember:timecreated'] = 'Date d\'ajout de l\'utilisateur à la cohorte.';
+$string['privacy:metadata:local_pronoteio_cmember:userid'] = 'Utilisateur ajouté à la cohorte.';
+$string['privacy:metadata:local_pronoteio_log'] = 'Journal de synchronisation d\'un compte lié.';
+$string['privacy:metadata:local_pronoteio_log:message'] = 'Message du journal.';
+$string['privacy:metadata:local_pronoteio_log:timecreated'] = 'Date de l\'entrée du journal.';
+$string['privacy:metadata:local_pronoteio_push'] = 'Éléments d\'évaluation et progressions envoyés à Pronote.';
+$string['privacy:metadata:local_pronoteio_push:blockinstanceid'] = 'Bloc de progression dont la progression a été envoyée.';
+$string['privacy:metadata:local_pronoteio_push:itemid'] = 'Élément d\'évaluation envoyé.';
+$string['privacy:metadata:local_pronoteio_push:servicename'] = 'Service Pronote ayant reçu les notes.';
+$string['privacy:metadata:local_pronoteio_push:timemodified'] = 'Date du dernier envoi.';
+$string['privacy:metadata:local_pronoteio_push:userid'] = 'Enseignant ayant envoyé les notes.';
+$string['privacy:metadata:pronote'] = 'Données échangées avec le serveur Pronote via le service annexe.';
+$string['privacy:metadata:pronote:grades'] = 'Notes envoyées à Pronote lorsque l\'écriture des notes est activée.';
+$string['privacy:metadata:pronote:password'] = 'Mot de passe Pronote, transmis une seule fois pour obtenir un jeton.';
+$string['privacy:metadata:pronote:pin'] = 'Code PIN de double authentification, transmis une seule fois pour enregistrer l\'appareil.';
+$string['privacy:metadata:pronote:username'] = 'Identifiant Pronote.';
+$string['progressexport'] = 'Exporter la progression vers Pronote';
+$string['progressexport_file'] = 'Fichier d\'import Pronote (UTF-16, séparateur tabulation), à importer dans le client Pronote : Notes > Saisie des notes > import depuis un fichier. Le coefficient ne peut pas être importé : saisissez-le dans Pronote.';
+$string['progressexport_intro'] = 'Le pourcentage de progression de chaque élève est converti en note, sur {$a->scale} par défaut (75 % donne 7,5), avec un coefficient de {$a->coefficient} par défaut.';
+$string['progressexport_nopush'] = 'Liez votre compte Pronote pour envoyer directement la progression avec son coefficient.';
+$string['progressexport_nostudents'] = 'Aucun élève dans cette sélection.';
+$string['progressexport_preview'] = 'Aperçu (note sur {$a})';
+$string['progressexport_push'] = 'Crée ou met à jour le devoir dans Pronote avec un coefficient de {$a} par défaut, après un aperçu et une simulation facultative.';
+$string['progresssource'] = 'Progression';
+$string['progresssource_help'] = 'Pourcentage d\'activités achevées par chaque élève dans le bloc de progression, calculé comme sur sa page de synthèse.';
+$string['pronote'] = 'Pronote';
+$string['pronoteio:exportgrades'] = 'Exporter les notes vers Pronote';
+$string['pronoteio:linkaccount'] = 'Lier un compte Pronote';
+$string['pronoteio:managecourse'] = 'Associer un cours à Pronote';
+$string['pronoteperiod'] = 'Période Pronote';
+$string['pronoteresource'] = 'Classe ou groupe Pronote';
+$string['pronoteservice'] = 'Service Pronote';
+$string['pronoteservice_help'] = 'Matière enseignée à une classe ou un groupe dans Pronote. Les services des classes associées à ce cours apparaissent en premier.';
+$string['pronoteurl'] = 'URL Pronote';
+$string['pronoteurl_help'] = 'Adresse de votre espace professeur Pronote, par exemple https://0000000a.index-education.net/pronote/professeur.html';
+$string['push_ambiguous'] = 'homonyme';
+$string['push_another'] = 'Envoyer un autre élément d\'évaluation';
+$string['push_assessment'] = 'Devoir Pronote';
+$string['push_confirm'] = 'Envoyer {$a} note(s) dans Pronote ? Les notes déjà saisies pour ce devoir seront remplacées.';
+$string['push_conversion'] = 'Conversion';
+$string['push_counts'] = '{$a->send} note(s) à envoyer, {$a->skip} sans note, {$a->unmatched} élève(s) introuvable(s) dans Pronote.';
+$string['push_done'] = '{$a} note(s) écrite(s) dans Pronote.';
+$string['push_dryrun'] = 'Simuler';
+$string['push_dryrun_done'] = 'Simulation réussie : {$a} note(s) seraient écrites. Rien n\'a été modifié dans Pronote.';
+$string['push_edit'] = 'Modifier les options';
+$string['push_expired'] = 'Cet aperçu a expiré, veuillez recommencer.';
+$string['push_orphans'] = 'Élèves du service Pronote sans correspondance dans Moodle :';
+$string['push_preview'] = 'Aperçu';
+$string['push_pronotestudent'] = 'Élève Pronote';
+$string['push_reason'] = 'Motif';
+$string['push_rejected_duplicate'] = 'Élève présent deux fois';
+$string['push_rejected_out_of_scale'] = 'Note hors barème';
+$string['push_send'] = 'Envoyer {$a} note(s)';
+$string['push_source'] = 'Notes Moodle';
+$string['push_state'] = 'État';
+$string['push_state_send'] = 'À envoyer';
+$string['push_state_skip'] = 'Rien à envoyer';
+$string['push_state_unmatched'] = 'Introuvable dans Pronote';
+$string['push_step1'] = 'Étape 1 sur 3 : choisissez l\'élément d\'évaluation, le service Pronote et les options du devoir.';
+$string['push_step2'] = 'Étape 2 sur 3 : vérifiez le rapprochement et les notes converties, simulez, puis envoyez.';
+$string['push_target'] = 'Destination Pronote';
+$string['push_update'] = 'Cet élément a déjà été envoyé à ce service le {$a} : le même devoir Pronote sera mis à jour.';
+$string['push_value'] = 'Note Pronote';
+$string['push_writedisabled'] = 'L\'envoi vers Pronote est désactivé par l\'administrateur : seule la simulation est disponible.';
+$string['pushgrades'] = 'Envoyer directement dans Pronote';
+$string['pushgrades_intro'] = 'Crée ou met à jour le devoir dans Pronote et y écrit les notes, après un aperçu et une simulation facultative.';
+$string['scalemode_fixed'] = 'Barème fixe';
+$string['scalemode_moodle'] = 'Note maximale de l\'élément d\'évaluation Moodle';
+$string['service_withperiods'] = '{$a->name} ({$a->periods})';
+$string['setting_bonus'] = 'Devoir bonus';
+$string['setting_bonus_desc'] = 'Seuls les points au-dessus de la moyenne comptent.';
+$string['setting_bonus_help'] = 'Dans Pronote, seuls les points au-dessus de 10/20 sont pris en compte dans la moyenne.';
+$string['setting_coefficient'] = 'Coefficient';
+$string['setting_coefficient_desc'] = 'Coefficient par défaut du devoir dans Pronote.';
+$string['setting_cohortaccount'] = 'Compte Pronote pour les cohortes';
+$string['setting_cohortaccount_desc'] = 'Compte enseignant lié servant à lire les classes et leurs élèves. Aucun droit particulier n\'est nécessaire, mais seules les classes visibles par cet enseignant sont disponibles.';
+$string['setting_comment'] = 'Commentaire';
+$string['setting_comment_desc'] = 'Commentaire par défaut du devoir, visible dans Pronote.';
+$string['setting_connector'] = 'Connecteur';
+$string['setting_connector_desc'] = 'Mode de communication entre Moodle et Pronote.';
+$string['setting_enablegradewrite'] = 'Autoriser l\'écriture des notes dans Pronote';
+$string['setting_enablegradewrite_desc'] = 'Envoie les notes via le protocole non officiel de Pronote. Si c\'est désactivé, les enseignants peuvent toujours simuler un envoi et télécharger le fichier d\'import. PRONOTEIO_ENABLE_GRADE_WRITE doit aussi être activé sur le service annexe.';
+$string['setting_matchmode'] = 'Rapprochement des élèves';
+$string['setting_matchmode_desc'] = 'Méthode de rapprochement entre élèves Pronote et utilisateurs Moodle. Les homonymes ne sont jamais rapprochés automatiquement : ils sont signalés. Avec le service annexe, Pronote ne transmet pas l\'adresse e-mail des élèves à un compte professeur : utilisez le rapprochement par nom et prénom.';
+$string['setting_optional'] = 'Devoir facultatif';
+$string['setting_optional_desc'] = 'La note ne compte que si elle augmente la moyenne.';
+$string['setting_optional_help'] = 'Dans Pronote, un devoir facultatif n\'est pris en compte que s\'il augmente la moyenne de l\'élève.';
+$string['setting_publicationdelay'] = 'Délai de publication (jours)';
+$string['setting_publicationdelay_desc'] = 'Nombre de jours ajoutés à la date du jour pour proposer la date de publication (date à partir de laquelle la note est visible des élèves et des parents). L\'enseignant peut la modifier à chaque envoi. 0 propose la date du jour.';
+$string['setting_rounding'] = 'Arrondi';
+$string['setting_rounding_desc'] = 'Pas utilisé pour arrondir les notes converties.';
+$string['setting_scale'] = 'Barème';
+$string['setting_scale_desc'] = 'Barème Pronote utilisé lorsque le barème est fixe (par exemple 20).';
+$string['setting_scalemode'] = 'Barème Pronote';
+$string['setting_scalemode_desc'] = 'Barème du devoir Pronote : la note maximale de l\'élément d\'évaluation Moodle, ou une valeur fixe. Les notes sont converties proportionnellement.';
+$string['setting_scaleto20'] = 'Ramener sur 20';
+$string['setting_scaleto20_desc'] = 'Pronote ramène la note sur 20 dans les moyennes.';
+$string['setting_sidecarsecret'] = 'Secret partagé';
+$string['setting_sidecarsecret_desc'] = 'Secret utilisé pour signer les requêtes (HMAC-SHA256). Doit être identique à PRONOTEIO_SECRET côté service annexe.';
+$string['setting_sidecarurl'] = 'URL du service annexe';
+$string['setting_sidecarurl_desc'] = 'Adresse du service Node.js, normalement accessible uniquement en local.';
+$string['setting_status_excluded'] = 'Note exclue dans Moodle';
+$string['setting_status_excluded_desc'] = 'Ce qui est envoyé lorsque la note Moodle est exclue du calcul.';
+$string['setting_status_nograde'] = 'Pas de note dans Moodle';
+$string['setting_status_nograde_desc'] = 'Ce qui est envoyé lorsque l\'élève n\'a pas de note dans Moodle.';
+$string['setting_syncwindowdays'] = 'Fenêtre de synchronisation (jours)';
+$string['setting_syncwindowdays_desc'] = 'Nombre de jours à venir récupérés pour l\'emploi du temps et le travail à faire.';
+$string['setting_timeout'] = 'Délai maximal (secondes)';
+$string['setting_timeout_desc'] = 'Durée maximale d\'une requête vers le service annexe.';
+$string['settings_cohorts'] = 'Cohortes';
+$string['settings_general'] = 'Général';
+$string['settings_gradedefaults'] = 'Options par défaut du devoir';
+$string['settings_gradedefaults_desc'] = 'Valeurs proposées à l\'enseignant, qui peut les modifier à chaque envoi.';
+$string['settings_grades'] = 'Envoi des notes vers Pronote';
+$string['settings_gradestatuses'] = 'Cas particuliers';
+$string['settings_gradestatuses_desc'] = 'Statuts Pronote utilisés pour les élèves sans note exploitable.';
+$string['status'] = 'État';
+$string['status_error'] = 'Erreur';
+$string['status_ok'] = 'Connecté';
+$string['status_pending'] = 'Non vérifié';
+$string['status_skip'] = 'Ne rien envoyer';
+$string['student'] = 'Élève';
+$string['task_cohortsync'] = 'Synchronisation des cohortes Pronote';
+$string['task_sync'] = 'Synchronisation Pronote';
+$string['testconnection'] = 'Tester la connexion';
+$string['type'] = 'Type';
+$string['type_class'] = 'Classe';
+$string['type_group'] = 'Groupe';
+$string['unlinkaccount'] = 'Délier le compte';
+$string['username'] = 'Identifiant Pronote';

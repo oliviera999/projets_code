@@ -1,0 +1,260 @@
+<?php
+// This file is part of Moodle - https://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+
+/**
+ * English strings for local_pronoteio.
+ *
+ * @package    local_pronoteio
+ * @copyright  2026
+ * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+defined('MOODLE_INTERNAL') || die();
+
+$string['accountintro'] = 'Link your Pronote teacher account. Your password is only used once to obtain a connection token and is never stored.';
+$string['accountlinked'] = 'Your Pronote account has been linked.';
+$string['accounttitle'] = 'My Pronote account';
+$string['accountunlinked'] = 'Your Pronote account has been unlinked.';
+$string['addmapping'] = 'Add mapping';
+$string['assessmentdate'] = 'Assessment date';
+$string['assessmentpublication'] = 'Publication date';
+$string['assessmentpublication_help'] = 'Date from which students and parents see the grade in Pronote. It cannot be before the assessment date. The suggested value depends on the publication delay set by the administrator.';
+$string['assessmenttitle'] = 'Assessment title';
+$string['assessmenttitle_help'] = 'Title of the assessment in Pronote. Leave empty to use the name of the grade item.';
+$string['cohort_addenrol'] = 'Add cohort enrolment';
+$string['cohort_autofill'] = 'Fill the cohort automatically';
+$string['cohort_enrolled'] = 'Enrolled';
+$string['cohort_locked'] = 'managed by a plugin';
+$string['cohort_neversynced'] = 'Never synchronised';
+$string['cohort_noaccount'] = 'Choose the Pronote teacher account used for the cohorts in the settings first. That account must be linked by its owner.';
+$string['cohort_nocohorts'] = 'No cohort exists yet. Create the cohorts first (Site administration > Users > Cohorts).';
+$string['cohort_report'] = 'Last synchronisation';
+$string['cohort_reportsummary'] = '{$a->matched} / {$a->students} students matched, {$a->added} added, {$a->removed} removed, {$a->extra} other member(s)';
+$string['cohort_suggested'] = 'Suggestion based on the name, save to confirm';
+$string['cohort_synced'] = '{$a} correspondence(s) synchronised.';
+$string['cohort_syncnow'] = 'Synchronise now';
+$string['cohort_unmatched'] = '{$a} student(s) not found in Moodle';
+$string['cohortexport'] = 'Export the table (CSV)';
+$string['cohortimport'] = 'Import a correspondence table';
+$string['cohortimport_done'] = '{$a} correspondence(s) imported.';
+$string['cohortimport_errors'] = 'Some lines were ignored:';
+$string['cohortimport_help'] = 'CSV file (comma or semicolon) with a header line and the columns: cohort_idnumber, cohort_name, pronote_class, autofill (1 or 0). The cohort is found by its ID number, otherwise by its name.';
+$string['cohortimport_replace'] = 'Replace the whole table (otherwise the lines are added or updated)';
+$string['cohortmapping'] = 'Cohorts and Pronote classes';
+$string['cohortmapping_intro'] = 'Associate each Pronote class or group with a Moodle cohort. When automatic filling is enabled, the students of the class found in Moodle are added to the cohort every night; only the members added this way are removed when they leave the class.';
+$string['connectionfailed'] = 'Connection to Pronote failed: {$a}';
+$string['connectionok'] = 'Connection to Pronote succeeded.';
+$string['connector_file'] = 'Files only (CSV export, iCal import)';
+$string['connector_sidecar'] = 'Sidecar service (Pawnote)';
+$string['coursemapping'] = 'Pronote';
+$string['csv_noclass'] = 'Line {$a->line}: Pronote class "{$a->value}" not found or ambiguous.';
+$string['csv_nocohort'] = 'Line {$a->line}: cohort "{$a->value}" not found or ambiguous.';
+$string['deletemapping'] = 'Delete mapping';
+$string['enabled'] = 'Automatic synchronisation';
+$string['error_badcredentials'] = 'Wrong Pronote username or password.';
+$string['error_badpin'] = 'PIN refused by Pronote.';
+$string['error_coefficient'] = 'The coefficient cannot be negative.';
+$string['error_doubleauth'] = 'Pronote asks for an unsupported double authentication. Log in once to the Pronote web space and try again.';
+$string['error_gradewritedisabled'] = 'Sending grades to Pronote is disabled by the administrator.';
+$string['error_noaccess'] = 'You do not have access to this page.';
+$string['error_noaccount'] = 'You must first link your Pronote account.';
+$string['error_noservices'] = 'Pronote returned no service or period for your account.';
+$string['error_notconfigured'] = 'This Pronote function is not configured on the sidecar service yet ({$a}). See docs/capture.md.';
+$string['error_notsupported'] = 'This operation is not supported by the "{$a}" connector.';
+$string['error_pinformat'] = 'The PIN has 4 to 8 digits.';
+$string['error_pinrequired'] = 'Pronote asks for your double authentication PIN: enter it with your password.';
+$string['error_publication'] = 'The publication date cannot be before the assessment date.';
+$string['error_scale'] = 'The scale must be positive and not exceed {$a}.';
+$string['error_securitysetup'] = 'Pronote asks you to customise your password or double authentication: do it first in the Pronote web space.';
+$string['error_servicenotinperiod'] = 'This Pronote service is not graded in the chosen period: choose one of its periods.';
+$string['error_serviceperiod'] = 'This service is only graded in: {$a}.';
+$string['error_session'] = 'The Pronote session could not be opened.';
+$string['error_sidecar'] = 'Sidecar service error: {$a}';
+$string['error_sidecarconfig'] = 'The sidecar service URL or shared secret is not configured.';
+$string['exportcsv'] = 'Download Pronote file';
+$string['exportgrades'] = 'Export grades to Pronote';
+$string['exportgrades_intro'] = 'The file is formatted for Pronote (UTF-16, tab separated). Import it in the Pronote client: Grades > Grade entry > import from a file.';
+$string['flow_absences'] = 'Absences';
+$string['flow_grades'] = 'Grades';
+$string['flow_homework'] = 'Homework';
+$string['flow_roster'] = 'Students and groups';
+$string['flow_timetable'] = 'Timetable';
+$string['flows'] = 'Synchronised flows';
+$string['gradeitem'] = 'Grade item';
+$string['gradestatus_abs'] = 'Absent (Abs)';
+$string['gradestatus_abszero'] = 'Absent, counts as zero (Abs0)';
+$string['gradestatus_disp'] = 'Exempted (Disp)';
+$string['gradestatus_inapte'] = 'Unfit (Inap)';
+$string['gradestatus_nonnote'] = 'Not graded (N.Not)';
+$string['gradestatus_nonrendu'] = 'Not handed in (N.Rdu)';
+$string['gradestatus_nonrenduzero'] = 'Not handed in, counts as zero (N.Rdu0)';
+$string['homeworkevent'] = 'Homework: {$a}';
+$string['icalurl'] = 'Timetable iCal URL';
+$string['icalurl_help'] = 'Optional. Export link of your timetable, available in Pronote (Timetable > Export iCal).';
+$string['lastsync'] = 'Last synchronisation';
+$string['lessoncancelled'] = '{$a} (cancelled)';
+$string['linkaccount'] = 'Link account';
+$string['mappingintro'] = 'Associate this course with one or more Pronote classes or groups.';
+$string['matchmode_email'] = 'E-mail address only';
+$string['matchmode_email_name'] = 'E-mail address, then last name and first name';
+$string['matchmode_name'] = 'Last name and first name only';
+$string['matchmode_name_email'] = 'Last name and first name, then e-mail address';
+$string['never'] = 'Never';
+$string['nogradeitems'] = 'This course has no numeric grade item to export.';
+$string['nomappings'] = 'No Pronote class or group is associated with this course.';
+$string['password'] = 'Pronote password';
+$string['password_help'] = 'Used once to obtain a token. Leave empty to keep the current connection.';
+$string['pin'] = 'Pronote PIN';
+$string['pin_help'] = 'Only if your Pronote account uses PIN double authentication. Used once, with the password, to register Moodle as a trusted device ("Moodle pronoteio"); it is never stored.';
+$string['pluginname'] = 'Pronoteio';
+$string['privacy:metadata:local_pronoteio_account'] = 'Pronote account linked by a teacher.';
+$string['privacy:metadata:local_pronoteio_account:icalurl'] = 'iCal export URL of the timetable.';
+$string['privacy:metadata:local_pronoteio_account:lastsync'] = 'Time of the last synchronisation.';
+$string['privacy:metadata:local_pronoteio_account:pronoteurl'] = 'URL of the Pronote instance.';
+$string['privacy:metadata:local_pronoteio_account:token'] = 'Encrypted Pronote connection token.';
+$string['privacy:metadata:local_pronoteio_account:userid'] = 'Moodle user who linked the account.';
+$string['privacy:metadata:local_pronoteio_account:username'] = 'Pronote username.';
+$string['privacy:metadata:local_pronoteio_cmember'] = 'Cohort memberships created by the synchronisation with a Pronote class.';
+$string['privacy:metadata:local_pronoteio_cmember:timecreated'] = 'Time the user was added to the cohort.';
+$string['privacy:metadata:local_pronoteio_cmember:userid'] = 'User added to the cohort.';
+$string['privacy:metadata:local_pronoteio_log'] = 'Synchronisation log of a linked account.';
+$string['privacy:metadata:local_pronoteio_log:message'] = 'Log message.';
+$string['privacy:metadata:local_pronoteio_log:timecreated'] = 'Time of the log entry.';
+$string['privacy:metadata:local_pronoteio_push'] = 'Grade items and progress sent to Pronote.';
+$string['privacy:metadata:local_pronoteio_push:blockinstanceid'] = 'Completion Progress block whose progress was sent.';
+$string['privacy:metadata:local_pronoteio_push:itemid'] = 'Grade item sent.';
+$string['privacy:metadata:local_pronoteio_push:servicename'] = 'Pronote service that received the grades.';
+$string['privacy:metadata:local_pronoteio_push:timemodified'] = 'Time of the last sending.';
+$string['privacy:metadata:local_pronoteio_push:userid'] = 'Teacher who sent the grades.';
+$string['privacy:metadata:pronote'] = 'Data exchanged with the Pronote server through the sidecar service.';
+$string['privacy:metadata:pronote:grades'] = 'Grades sent to Pronote when grade writing is enabled.';
+$string['privacy:metadata:pronote:password'] = 'Pronote password, sent once to obtain a token.';
+$string['privacy:metadata:pronote:pin'] = 'Double authentication PIN, sent once to register the device.';
+$string['privacy:metadata:pronote:username'] = 'Pronote username.';
+$string['progressexport'] = 'Export progress to Pronote';
+$string['progressexport_file'] = 'Pronote import file (UTF-16, tab separated), to import in the Pronote client: Grades > Grade entry > import from a file. The coefficient cannot be imported: set it in Pronote.';
+$string['progressexport_intro'] = 'The progress percentage of each student is converted to a grade, on {$a->scale} by default (75 % gives 7.5), with a default coefficient of {$a->coefficient}.';
+$string['progressexport_nopush'] = 'Link your Pronote account to send the progress directly with its coefficient.';
+$string['progressexport_nostudents'] = 'No student in this selection.';
+$string['progressexport_preview'] = 'Preview (grade on {$a})';
+$string['progressexport_push'] = 'Creates or updates the assessment in Pronote with a coefficient of {$a} by default, after a preview and an optional simulation.';
+$string['progresssource'] = 'Progress';
+$string['progresssource_help'] = 'Percentage of activities completed by each student in the Completion Progress block, computed like its overview page.';
+$string['pronote'] = 'Pronote';
+$string['pronoteio:exportgrades'] = 'Export grades to Pronote';
+$string['pronoteio:linkaccount'] = 'Link a Pronote account';
+$string['pronoteio:managecourse'] = 'Associate a course with Pronote';
+$string['pronoteperiod'] = 'Pronote period';
+$string['pronoteresource'] = 'Pronote class or group';
+$string['pronoteservice'] = 'Pronote service';
+$string['pronoteservice_help'] = 'Subject taught to a class or group in Pronote. The services of the classes associated with this course are listed first.';
+$string['pronoteurl'] = 'Pronote URL';
+$string['pronoteurl_help'] = 'Address of your Pronote teacher space, for example https://0000000a.index-education.net/pronote/professeur.html';
+$string['push_ambiguous'] = 'homonym';
+$string['push_another'] = 'Send another grade item';
+$string['push_assessment'] = 'Pronote assessment';
+$string['push_confirm'] = 'Send {$a} grade(s) to Pronote? Existing grades of this assessment will be replaced.';
+$string['push_conversion'] = 'Conversion';
+$string['push_counts'] = '{$a->send} grade(s) to send, {$a->skip} without grade, {$a->unmatched} student(s) not found in Pronote.';
+$string['push_done'] = '{$a} grade(s) written in Pronote.';
+$string['push_dryrun'] = 'Simulate';
+$string['push_dryrun_done'] = 'Simulation successful: {$a} grade(s) would be written. Nothing was changed in Pronote.';
+$string['push_edit'] = 'Change the options';
+$string['push_expired'] = 'This preview has expired, please start again.';
+$string['push_orphans'] = 'Students of the Pronote service without a match in Moodle:';
+$string['push_preview'] = 'Preview';
+$string['push_pronotestudent'] = 'Pronote student';
+$string['push_reason'] = 'Reason';
+$string['push_rejected_duplicate'] = 'Student present twice';
+$string['push_rejected_out_of_scale'] = 'Grade outside the scale';
+$string['push_send'] = 'Send {$a} grade(s)';
+$string['push_source'] = 'Moodle grades';
+$string['push_state'] = 'Status';
+$string['push_state_send'] = 'To send';
+$string['push_state_skip'] = 'Nothing to send';
+$string['push_state_unmatched'] = 'Not found in Pronote';
+$string['push_step1'] = 'Step 1 of 3: choose the grade item, the Pronote service and the assessment options.';
+$string['push_step2'] = 'Step 2 of 3: check the matching and the converted grades, simulate, then send.';
+$string['push_target'] = 'Pronote destination';
+$string['push_update'] = 'Already sent to this service on {$a}: the same Pronote assessment will be updated.';
+$string['push_value'] = 'Pronote grade';
+$string['push_writedisabled'] = 'Sending to Pronote is disabled by the administrator: only the simulation is available.';
+$string['pushgrades'] = 'Send directly to Pronote';
+$string['pushgrades_intro'] = 'Creates or updates the assessment in Pronote and writes the grades, after a preview and an optional simulation.';
+$string['scalemode_fixed'] = 'Fixed scale';
+$string['scalemode_moodle'] = 'Maximum grade of the Moodle grade item';
+$string['service_withperiods'] = '{$a->name} ({$a->periods})';
+$string['setting_bonus'] = 'Bonus assessment';
+$string['setting_bonus_desc'] = 'Only the points above the average count.';
+$string['setting_bonus_help'] = 'In Pronote, only the points above 10/20 are taken into account in the average.';
+$string['setting_coefficient'] = 'Coefficient';
+$string['setting_coefficient_desc'] = 'Default coefficient of the assessment in Pronote.';
+$string['setting_cohortaccount'] = 'Pronote account for the cohorts';
+$string['setting_cohortaccount_desc'] = 'Linked teacher account used to read the classes and their students. No special right is needed, but only the classes this teacher can see are available.';
+$string['setting_comment'] = 'Comment';
+$string['setting_comment_desc'] = 'Default comment of the assessment, visible in Pronote.';
+$string['setting_connector'] = 'Connector';
+$string['setting_connector_desc'] = 'How Moodle communicates with Pronote.';
+$string['setting_enablegradewrite'] = 'Allow writing grades to Pronote';
+$string['setting_enablegradewrite_desc'] = 'Sends grades through the unofficial Pronote protocol. When disabled, teachers can still simulate a sending and download the import file. PRONOTEIO_ENABLE_GRADE_WRITE must also be enabled on the sidecar.';
+$string['setting_matchmode'] = 'Student matching';
+$string['setting_matchmode_desc'] = 'How Pronote students are matched with Moodle users. Homonyms are never matched automatically: they are reported. With the sidecar service, Pronote does not send student e-mail addresses to a teacher account: use name matching.';
+$string['setting_optional'] = 'Optional assessment';
+$string['setting_optional_desc'] = 'The grade only counts if it raises the average.';
+$string['setting_optional_help'] = 'In Pronote, an optional assessment is only taken into account when it raises the student\'s average.';
+$string['setting_publicationdelay'] = 'Publication delay (days)';
+$string['setting_publicationdelay_desc'] = 'Number of days added to the current date to suggest the publication date (from which students and parents see the grade). Teachers can change it on each push. 0 suggests the current date.';
+$string['setting_rounding'] = 'Rounding';
+$string['setting_rounding_desc'] = 'Step used to round the converted grades.';
+$string['setting_scale'] = 'Scale';
+$string['setting_scale_desc'] = 'Pronote scale used when the scale is fixed (for example 20).';
+$string['setting_scalemode'] = 'Pronote scale';
+$string['setting_scalemode_desc'] = 'Scale of the Pronote assessment: the maximum grade of the Moodle grade item, or a fixed value. Grades are converted proportionally.';
+$string['setting_scaleto20'] = 'Bring back to 20';
+$string['setting_scaleto20_desc'] = 'Pronote converts the grade to 20 in the averages.';
+$string['setting_sidecarsecret'] = 'Shared secret';
+$string['setting_sidecarsecret_desc'] = 'Secret used to sign requests (HMAC-SHA256). Must match PRONOTEIO_SECRET on the sidecar.';
+$string['setting_sidecarurl'] = 'Sidecar service URL';
+$string['setting_sidecarurl_desc'] = 'Address of the Node.js service, normally reachable only locally.';
+$string['setting_status_excluded'] = 'Grade excluded in Moodle';
+$string['setting_status_excluded_desc'] = 'What is sent when the Moodle grade is excluded from the aggregation.';
+$string['setting_status_nograde'] = 'No grade in Moodle';
+$string['setting_status_nograde_desc'] = 'What is sent when the student has no grade in Moodle.';
+$string['setting_syncwindowdays'] = 'Synchronisation window (days)';
+$string['setting_syncwindowdays_desc'] = 'Number of days ahead retrieved for timetable and homework.';
+$string['setting_timeout'] = 'Timeout (seconds)';
+$string['setting_timeout_desc'] = 'Maximum duration of a request to the sidecar service.';
+$string['settings_cohorts'] = 'Cohorts';
+$string['settings_general'] = 'General';
+$string['settings_gradedefaults'] = 'Default assessment options';
+$string['settings_gradedefaults_desc'] = 'Values proposed to the teacher, who can change them for each sending.';
+$string['settings_grades'] = 'Grades sent to Pronote';
+$string['settings_gradestatuses'] = 'Special cases';
+$string['settings_gradestatuses_desc'] = 'Pronote statuses used for the students without a usable grade.';
+$string['status'] = 'Status';
+$string['status_error'] = 'Error';
+$string['status_ok'] = 'Connected';
+$string['status_pending'] = 'Not verified';
+$string['status_skip'] = 'Send nothing';
+$string['student'] = 'Student';
+$string['task_cohortsync'] = 'Pronote cohort synchronisation';
+$string['task_sync'] = 'Pronote synchronisation';
+$string['testconnection'] = 'Test connection';
+$string['type'] = 'Type';
+$string['type_class'] = 'Class';
+$string['type_group'] = 'Group';
+$string['unlinkaccount'] = 'Unlink account';
+$string['username'] = 'Pronote username';
